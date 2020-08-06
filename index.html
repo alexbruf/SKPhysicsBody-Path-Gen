@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+  
+<!-- Mirrored from www.radicalphase.com/pathgen/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Aug 2020 16:58:26 GMT -->
+<head>
+  
+  	<title>SpriteKit SKPhysicsBody Path Generator</title>
+  	
+	<meta name="description" content="Automatically create paths for your physics bodies with this free online tool." > 
+  
+  	<script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+  	<script type="text/javascript" src="assets/js/simplify.js"></script>
+  	<script type="text/javascript" src="assets/js/graham_scan.js"></script>
+ 	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script> 	
+ 	<script type="text/javascript" src="assets/js/pathgen.js"></script>
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet" />
+	<link href="assets/css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+		#profile { display:none!important; }
+	</style>
+  </head>
+  <body>
+  
+  	<div id="container">
+  
+		<ul class="nav nav-pills">
+		  <li role="presentation" class="active"><a href="#">SKPhysicsBody Path Gen</a></li>
+		  <li role="presentation"><a href="http://www.radicalphase.com/bezierpath/">Bezier Path Gen</a></li>
+		</ul>	
+	
+		<div class="page-header">
+			<h1>SpriteKit SKPhysicsBody Path Generator<br/><small>automatically create paths for your SpriteKit physics bodies with this free online tool.</small></h1>
+		</div>
+	
+		<div class="alert alert-info" role="alert"><strong>Instructions:</strong> Drag and drop an image into the box below or click on the box to select an image from your computer. Adjust the settings as required, then click on the Recalculate button to see the effect of your changes.</div>
+
+		<div class="alert alert-warning" role="alert"><strong>New Update:</strong> Now includes a force convex mode (enabled by default) to ensure 100% compatibility with SpriteKit Physics Bodies, and also to reduce the points count - enjoy! :)</div>  
+	
+		<div id="panels">
+	
+			<div id="left">
+	
+				<strong>Image:</strong><br/>
+				<div id="imageDropzone" onclick="$('#imageFile').click()" class="border-radius-5">
+					<canvas id="imageCanvas" width="400" height="400"></canvas>
+					<input type="file" name="imageFile" id="imageFile" />
+				</div>
+	
+			</div>
+		
+			<div id="right">
+	
+				<strong>Output:</strong><br/>
+				<textarea style="width:100%;height:375px;" id="txtOutput" name="txtOutput" class="border-radius-5"></textarea><br/>
+				<strong>Total Points:</strong>&nbsp;<span id="spnTotalPoints">0</span>
+	
+			</div>		
+		
+		</div>
+	
+		<label for="txtNoRaycaster">Enter No. Raycasters (Min. 16, Max. 360):</label><br/>
+		<input type="text" id="txtNoRaycasters" name="txtNoRaycasters" value="64"/><br/><br/>
+		<div class="alert alert-info" role="alert"><strong>Note</strong> - using a higher number of raycasters will produce a more precise rendition of the image's shape.</div>
+		<label for="txtTolerance">Tolerance: (Default = 1.0)</label><br/>
+		<input type="text" id="txtTolerance" name="txtTolerance" value="1.0" /><br/><br/>
+		<div class="alert alert-info" role="alert"><strong>Note</strong> - higher tolerance values will result in potentially fewer points, but also a less accurate polygon path.</div>
+		<label for="chkHighQuality">Enable High Quality Mode:</label><input type="checkbox" id="chkHighQuality" name="chkHighQuality"/><br/>
+		<label for="chkForceConvex">Force to Convex:</label><input type="checkbox" id="chkForceConvex" name="chkForceConvex" checked="checked"/>&nbsp;(N.B. SpriteKit SKPhysicsBody paths must be convex)<br/>
+		<label for="chkOriginBottomLeft">(0, 0) at Bottom Left:</label><input type="checkbox" id="chkOriginBottomLeft" name="chkOriginBottomLeft" checked="checked"/><br/>
+		<label for="chkRetina">Retina Mode:</label><input type="checkbox" id="chkRetina" name="chkRetina" checked="checked"/><br/>
+		<label for="radOutputObjC">Output Format:</label>
+		<input type="radio" id="radOutputObjC" name="radOutputFormats" checked="checked"/>&nbsp;Objective C
+		&nbsp;&nbsp;&nbsp;
+		<input type="radio" id="radOutputSwift" name="radOutputFormats"/>&nbsp;Swift
+	
+		<br/><br/>
+
+		<button id="btnRecalculate" name="btnRecalculate" type="button" class="btn btn-primary btn-lg">
+			<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Recalculate...
+		</button>
+	
+		<br/><br/>  
+	
+		<hr/>
+	
+		<h2 style="margin:bottom:0px!important;padding-bottom:0px!important;">Please enter any comments/suggestions below. Thanks.</h2>
+	
+		<!-- Begin Comments JavaScript Code --><script type="text/javascript" async>function ajaxpath_553d50f7b7916(url){return window.location.href == '' ? url : url.replace('&s=','&s=' + escape(window.location.href));}(function(){document.write('<div id="fcs_div_553d50f7b7916"><a title="free comment script" href="http://www.freecommentscript.com/">&nbsp;&nbsp;<b>Free HTML User Comments</b>...</a></div>');fcs_553d50f7b7916=document.createElement('script');fcs_553d50f7b7916.type="text/javascript";fcs_553d50f7b7916.src=ajaxpath_553d50f7b7916((document.location.protocol=="https:"?"https:":"http:")+"//www.freecommentscript.com/GetComments2.php?p=553d50f7b7916&s=&Size=10#!553d50f7b7916");setTimeout("document.getElementById('fcs_div_553d50f7b7916').appendChild(fcs_553d50f7b7916)",1);})();</script><noscript><div><a href="http://www.freecommentscript.com/" title="free html user comment box">Free Comment Script</a></div></noscript><!-- End Comments JavaScript Code -->
+		
+		<div class="well well-sm">&copy; Copyright 2015 Space Cadets. All rights reserved.</div>	
+	
+		<p style="text-align:center;">
+	
+			<!-- GoStats JavaScript Based Code -->
+			<script type="text/javascript" src="http://gostats.com/js/counter.js"></script>
+			<script type="text/javascript">_gos='c4.gostats.com';_goa=399180;
+			_got=4;_goi=7;_goz=1;_god='hits';_gol='stat counter';_GoStatsRun();</script>
+			<noscript><a target="_blank" title="stat counter" 
+			href="http://gostats.com/"><img alt="stat counter" 
+			src="http://c4.gostats.com/bin/count/a_399180/t_4/i_7/z_1/show_hits/counter.png" 
+			style="border-width:0" /></a></noscript>
+			<!-- End GoStats JavaScript Based Code -->
+	
+		</p>
+	
+		<ul class="nav nav-pills">
+		  <li role="presentation" class="active"><a href="#">SKPhysicsBody Path Gen</a></li>
+		  <li role="presentation"><a href="http://www.radicalphase.com/bezierpath/">Bezier Path Gen</a></li>
+		</ul>	
+	
+	</div>
+    
+  </body>
+
+<!-- Mirrored from www.radicalphase.com/pathgen/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Aug 2020 16:58:34 GMT -->
+</html>      
