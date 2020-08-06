@@ -211,6 +211,11 @@ if(endCoords.length > 0) {
 	
 	var xOutput = 0;
 	var yOutput = 0;
+
+	var start = {x: endCoords[0].x, y: endCoords[0].y}
+ 	endCoords.reverse()
+	endCoords = endCoords.slice(0, endCoords.length - 1)
+	endCoords = Array(start).concat(endCoords)
 	
 	for(var index = 0; index < endCoords.length; index++) {
 	
