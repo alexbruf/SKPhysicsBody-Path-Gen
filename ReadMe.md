@@ -12,6 +12,8 @@ No need to install anything. Simply serve the website statically (IE you could u
 python -m SimpleHTTPServer 8000
 ```
 
+Site is live at: [https://alexbruf.github.io/SKPhysicsBody-Path-Gen/](https://alexbruf.github.io/SKPhysicsBody-Path-Gen/)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
