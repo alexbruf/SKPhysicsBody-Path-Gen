@@ -203,9 +203,9 @@ if(endCoords.length > 0) {
 	} else {
 	
 		outputHtml = "var sprite = SKSpriteNode(imageNamed: \"my-sprite.png\")\n\n";
-		outputHtml += "var offsetX = CGFloat(sprite.frame.size.width * sprite.anchorPoint.x)\n";
-		outputHtml += "var offsetY = CGFloat(sprite.frame.size.height * sprite.anchorPoint.y)\n\n";
-		outputHtml += "var path = CGPathCreateMutable()\n\n";
+		outputHtml += "let offsetX = CGFloat(sprite.frame.size.width * sprite.anchorPoint.x)\n";
+		outputHtml += "let offsetY = CGFloat(sprite.frame.size.height * sprite.anchorPoint.y)\n\n";
+		outputHtml += "let path = CGMutablePath()\n\n";
 	
 	}
 	
@@ -231,12 +231,12 @@ if(endCoords.length > 0) {
 			if($("#radOutputObjC").prop("checked") == true)
 				outputHtml += "CGPathMoveToPoint(path, NULL, " + xOutput + " - offsetX, " + yOutput + " - offsetY);\n";
 			else
-				outputHtml += "CGPathMoveToPoint(path, nil, " + xOutput + " - offsetX, " + yOutput + " - offsetY)\n";
+				outputHtml += "path.move(to: CGPoint(x:  " + xOutput + " - offsetX, y: " + yOutput + " - offsetY))\n";
 		} else {
 			if($("#radOutputObjC").prop("checked") == true)
 				outputHtml += "CGPathAddLineToPoint(path, NULL, " + xOutput + " - offsetX, " + yOutput + " - offsetY);\n";
 			else
-				outputHtml += "CGPathAddLineToPoint(path, nil, " + xOutput + " - offsetX, " + yOutput + " - offsetY)\n";
+				outputHtml += "path.addLine(to: CGPoint(x: " + xOutput + " - offsetX, y: " + yOutput + " - offsetY))\n";
 	
 		}
 	}
@@ -245,8 +245,8 @@ if(endCoords.length > 0) {
 		outputHtml += "\nCGPathCloseSubpath(path);\n\n";
 		outputHtml += "sprite.physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];";
 	} else {
-		outputHtml += "\nCGPathCloseSubpath(path)\n\n";
-		outputHtml += "sprite!.physicsBody = SKPhysicsBody(polygonFromPath: path)";
+		outputHtml += "\path.closeSubpath()\n\n";
+		outputHtml += "sprite!.physicsBody = SKPhysicsBody(polygonFrom: path)";
 	}
 	
 	$("#txtOutput").html(outputHtml);
